@@ -1,0 +1,317 @@
+:root {
+    --primary-color: #f44336
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    
+    background-color: #eee;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+}
+
+body h1 {
+    width: 450px;
+    padding: 20px;
+    margin: 50px 0 50px;
+    background-color: white;
+    text-align: center;
+    position: relative;
+    left: 30%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #333;
+}
+
+.guess-game {
+    text-align: center;
+    width: 800px;
+    height: 600px;
+    margin: 100px auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .game-area {
+
+        height: 400px;
+    }
+    align-items: center;
+
+.form .key-colors {
+        .key-color {
+            position: relative;
+            top: 0;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            .key {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                margin-right: 10px;
+                /* this (&) expressing the i mean the key class is the parent for (in-place) class */
+                &.in-place {
+                    background-color: #18ba89;
+                }
+
+                &.not-in-place {
+                    background-color: chocolate;
+                }
+
+                &.no {
+                    background-color: #27303f;
+                }
+            }
+
+            .key-text {
+                font-weight: bold;
+                font-size: 15px;
+            }
+
+        }
+    }
+}
+
+/* Flattened selectors for browser (replacing nested syntax usage) */
+.guess-game .game-area {
+    text-align: center;
+    
+}
+
+/* Inputs generated dynamically by JS */
+.inputs {
+    display: grid;
+    position: relative;
+    row-gap: 12px;
+    justify-items: start;
+    top: 100px;
+}
+.inputs > div { /* .try-1, .try-2, ... */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: 16px;
+}
+.inputs > div > span {
+    display: inline-block;
+    min-width: 50px;
+    font-weight: bold;
+    text-align: left;
+}
+.inputs > div > input {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: rgb(235, 235, 235);
+    box-shadow: inset 3px 3px 6px #d1d1d1, inset -3px -3px 6px #ffffff;
+    text-align: center;
+    font-size: 18px;
+}
+
+.inputs > div > input.in-place {
+    background-color: #18ba89 !important;
+    color: white !important;
+}
+
+.inputs > div > input.not-in-place {
+    background-color: chocolate !important;
+    color: white !important;
+}
+
+.inputs > div > input.no {
+    background-color: #27303f !important;
+    color: white !important;
+}
+.inputs > div > input:hover,
+.inputs > div > input:focus {
+    box-shadow: inset 0px 0px 0px #d1d1d1, inset 0px 0px 0px #ffffff;
+    background-color: lightgrey;
+}
+.disabled-inputs input {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.disabled-inputs input:not(.in-place):not(.not-in-place):not(.no) {
+    background-color: #f0f0f0 !important;
+    color: #999 !important;
+}
+
+.disabled-button {
+    background-color: #333;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+
+
+.form {
+    width: 750px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color:#d1d1d1 ;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: .4s ease-in-out;
+    align-items: flex-start;
+    position: relative;
+    bottom: 0;
+    top: -71px;
+}
+
+
+.form:hover {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    scale: 0.99;
+}
+
+
+
+/* Place key colors at bottom-right inside the form box */
+.box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.form .key-colors {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+.form .key-colors .key-color {
+    position: static;
+}
+
+
+
+
+
+.check, .hint {
+    position: relative;
+    top: 120px;
+    left: 0;
+    width: 10em;
+    height: 3em;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    outline: none;
+    transition: .4s ease-in-out;
+    box-shadow: 1px 1px 3px #b5b5b5,
+               -1px -1px 3px #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Group buttons together and keep them after inputs */
+.control-btns {
+    margin-top: 20px;
+    align-self: flex-start;
+    margin-left: 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.check:active {
+    box-shadow: inset 3px 3px 6px #b5b5b5,
+              inset -3px -3px 6px #ffffff;
+}
+
+
+.hint:active {
+    box-shadow: inset 3px 3px 6px #b5b5b5,
+              inset -3px -3px 6px #ffffff;
+}
+
+.check:hover {
+    color: white;
+    background-color: #18ba89;
+}
+
+.hint:hover {
+    color: white;
+    background-color: chocolate;
+}
+
+/* Reset button specific styling */
+.reset-button:hover {
+    background-color: #007bff;
+}
+
+
+.style {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #333;
+    animation: alternate;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+}
+
+/* Message div styling */
+.message {
+    margin-top: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    min-height: 20px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+    position: relative;
+    top: -45px;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 2px solid #bee5eb;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.2);
+}
+
+.guess-word {
+    color: #18ba89;
+    font-size: 30px;
+}
